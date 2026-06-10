@@ -1,6 +1,9 @@
 # Soft Skills for Career Success
 
-# 🚀 Live on GitHub Pages: [https://msac-cisw.github.io/Soft-Skills-Video-Lessons/](https://msac-cisw.github.io/Soft-Skills-Video-Lessons/)
+> [!NOTE]
+> ### 🚀 Live Website
+> This project is live on GitHub Pages! You can view and interact with the study site here:
+> **[msac-cisw.github.io/Soft-Skills-Video-Lessons](https://msac-cisw.github.io/Soft-Skills-Video-Lessons/)**
 
 This is a lightweight, student-facing study website for the eight-video Soft Skills for Career Success series.
 
