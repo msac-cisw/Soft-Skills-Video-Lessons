@@ -593,7 +593,6 @@ function renderHomePage() {
         <div class="lesson-card__meta">Lesson ${lesson.id} of ${window.SOFT_SKILLS_LESSONS.length}</div>
         <h2>${lesson.title}</h2>
         <p>${lesson.description}</p>
-        <p class="time-label">Estimated time: ${ESTIMATED_TIME}</p>
         <a class="button ${isCompleted ? 'button--secondary' : ''}" href="${lessonUrl(lesson.id)}" aria-label="${isCompleted ? 'Review' : 'Start'} lesson ${lesson.id}: ${lesson.title}">
           ${isCompleted ? 'Review Lesson' : 'Start Lesson'}
         </a>

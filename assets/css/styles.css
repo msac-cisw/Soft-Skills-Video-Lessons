@@ -178,7 +178,7 @@ a:hover {
   color: var(--muted);
 }
 
-.lesson-card .time-label {
+.lesson-card .button {
   margin-top: auto;
 }
 
