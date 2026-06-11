@@ -2,7 +2,7 @@
 
 <iframe title="Time Management Skills" src="https://3cmediasolutions.org/privid/464842?embed=&key=295a43e09855090470cb58ca0f091e9e899bf3b7&width=640&height=360" width="640" height="360" scrolling="no" allowfullscreen frameborder="0"></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/gsT2Se-1y6M?si=uLdfNOMi1WBP0Us_" title="Grow Your EQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe title="Grow Your EQ" src="https://3cmediasolutions.org/privid/464980?embed=&key=7303f076f99b35bbe4d45119d3e1e3f680fe863a&width=640&height=360" width="640" height="360" scrolling="no" allowfullscreen frameborder="0"></iframe>
 
 <iframe title="Adaptability & Resilience" src="https://3cmediasolutions.org/privid/465024?embed=&key=9ba449a45befa49966eeddb682799f55c92994a1&width=640&height=360" width="640" height="360" scrolling="no" allowfullscreen frameborder="0"></iframe>
 

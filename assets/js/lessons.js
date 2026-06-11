@@ -136,7 +136,7 @@ window.SOFT_SKILLS_LESSONS = [
   {
     id: 3,
     title: "Grow Your EQ",
-    embedHtml: '<iframe width="560" height="315" src="https://www.youtube.com/embed/gsT2Se-1y6M?si=uLdfNOMi1WBP0Us_" title="Grow Your EQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+    embedHtml: '<iframe title="Grow Your EQ" src="https://3cmediasolutions.org/privid/464980?embed=&key=7303f076f99b35bbe4d45119d3e1e3f680fe863a&width=640&height=360" width="640" height="360" scrolling="no" allowfullscreen frameborder="0"></iframe>',
     description: "Explore emotional intelligence and how self-awareness can improve daily interactions.",
     objective: "Recognize how emotional intelligence supports self-management, communication, and relationships.",
     beforePrompt: "Before you watch, think about a recent moment when emotions affected a conversation or decision.",
@@ -538,6 +538,8 @@ window.SOFT_SKILLS_LESSONS = [
 ];
 
 const ESTIMATED_TIME = "8-10 minutes";
+const THREE_C_MOBILE_LAYOUT_WIDTH = 480;
+const THREE_C_MOBILE_LAYOUT_HEIGHT = 420;
 
 function lessonUrl(id) {
   return `lessons/lesson-${id}.html`;
@@ -561,6 +563,24 @@ function normalizeEmbed(embedHtml) {
   iframe.setAttribute("loading", "lazy");
   iframe.setAttribute("allowfullscreen", "");
   return template.innerHTML;
+}
+
+function syncThreeCMediaFrameScales() {
+  const frames = document.querySelectorAll(".video-frame--3cmedia");
+  const shouldScale = window.matchMedia("(max-width: 640px)").matches;
+
+  frames.forEach((frame) => {
+    if (!shouldScale) {
+      frame.style.removeProperty("--able-player-scale");
+      frame.style.removeProperty("height");
+      return;
+    }
+
+    const innerWidth = Math.max(0, frame.clientWidth - 2);
+    const scale = Math.min(1, innerWidth / THREE_C_MOBILE_LAYOUT_WIDTH);
+    frame.style.setProperty("--able-player-scale", scale.toFixed(4));
+    frame.style.height = `${Math.ceil(THREE_C_MOBILE_LAYOUT_HEIGHT * scale) + 2}px`;
+  });
 }
 
 function renderHomePage() {
@@ -684,7 +704,7 @@ function renderLessonPage() {
     </header>
 
     <section class="video-section" aria-label="${lesson.title} video">
-      <div class="video-frame">
+      <div class="video-frame${lesson.embedHtml.includes('3cmediasolutions.org') ? ' video-frame--3cmedia' : ''}${navigator.userAgent.toLowerCase().includes('firefox') ? ' video-frame--firefox' : ''}">
         ${normalizeEmbed(lesson.embedHtml)}
       </div>
     </section>
@@ -748,6 +768,8 @@ function renderLessonPage() {
   if (window.renderQuiz) {
     window.renderQuiz(lesson);
   }
+
+  syncThreeCMediaFrameScales();
 
   // Set up reflection form logic
   const reflectionForm = page.querySelector("[data-reflection-form]");
@@ -1024,6 +1046,8 @@ document.addEventListener("DOMContentLoaded", () => {
   renderHomePage();
   renderLessonPage();
 });
+
+window.addEventListener("resize", syncThreeCMediaFrameScales);
 
 function setupInfoModal() {
   let dialog = document.getElementById("info-dialog");
